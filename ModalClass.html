@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<style type="text/css">
+
+/* CSS GOES HERE */
+
+</style></head>
+
+<body>
+
+
+<div class="modal">
+	<div id="title">Title</div>
+	<form>
+		<div class="body">
+		<label for="name">Name</label><input name="Name" type="text" required>
+		<label for="name">Age</label><input name="Age" type="text" required>
+		
+		<input type="radio" name="gender" value="male">
+		<input type="radio" name="gender" value="female">
+		
+		<select name="sel">
+			<option value="01">one</option>
+			<option value="02">two</option>
+		</select>
+		
+		<textarea name="msg"></textarea>
+		
+		</div>
+		<div class="footer">
+			<input type="button" value="Cancel">
+			<input type="submit" value="OK">
+		</div>
+	</form>
+</div>
+
+
+
+<script type="text/javascript">
+/* JAVASCRIPT GOES HERE */
+window.onload=function(){
+	
+	Modal1= new Modal().init( document.getElementsByClassName('modal')[0] );
+	
+	Modal1.onSubmit=function(obj){
+		console.log(obj);
+		return false;
+	}
+	
+	Modal1.onCancel=function(){
+		console.log('closed');
+		return false;
+	}
+	
+};
+
+
+var Modal=function(modal,onsubmit,oncancel){
+	var _=this;
+	
+	var _modal;
+	var _form;
+	var _cancel;
+	
+	this.onSubmit=null;
+	this.onCancel=null;
+	
+	this.show=function(){
+		_modal.style.display="block";
+		_form.reset();
+	};
+	
+	this.hide=function(){
+		_modal.style.display="none";
+		_form.reset();
+	};
+	
+	this.init=function(modal){
+		_modal=modal;
+		_form=_modal.getElementsByTagName('form')[0];
+		_cancel=_form.getElementsByClassName('footer')[0].getElementsByTagName('input')[0];
+
+		_cancel.onclick=function(){
+				//dispatch onCancel event
+				if(fireEvent(_.onCancel))
+				 _.hide(); //hide modal
+		};
+		
+		_form.onsubmit=function(ev){
+			//get values
+			var obj={};
+			var inputs=_form.getElementsByTagName('input');
+			var selects=_form.getElementsByTagName('select');
+			var textarea=_form.getElementsByTagName('textarea');
+			
+			inputs=Array.prototype.slice.call(inputs);
+			selects=Array.prototype.slice.call(selects);
+			textarea=Array.prototype.slice.call(textarea);
+			
+			var el=inputs.concat(selects,textarea);
+			
+			for(var i=0,l=el.length;i<l;i++)
+			if(el[i].name && el[i].type!="radio" || el[i].checked) obj[el[i].name]=el[i].value;
+
+			//dispatch onSubmit event and pass values as parameters
+			if( fireEvent(_.onSubmit,[obj]) )
+				_.hide();
+			
+			//cancel http
+			ev.preventDefault();
+   			ev.stopPropagation();
+			return false; 
+		}
+	
+			return _;
+	}
+}
+
+
+function fireEvent(fn, args, context){
+	if(typeof fn=="function") return fn.apply(context?context:window, args || [])!=false;
+	return true;
+}
+
+
+
+</script>
+  
+</body>
+</html>

@@ -1,0 +1,54 @@
+
+.panel {
+    display: table;
+    border-collapse: collapse;
+	
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+.panel > div{
+    display: table-row;
+    height: auto;
+}
+.panel > .toolbar{
+    height: 0;
+}
+.panel > .fill{
+    height: auto;
+	overflow: auto;
+}
+
+
+/* Visual */
+
+.panel .toolbar{
+    
+    background: #e2e2e2; 
+    background: -moz-linear-gradient(top,  #e2e2e2 0%, #dbdbdb 50%, #d1d1d1 51%, #fefefe 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e2e2e2), color-stop(50%,#dbdbdb), color-stop(51%,#d1d1d1), color-stop(100%,#fefefe)); 
+    background: -webkit-linear-gradient(top,  #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%); 
+    background: -o-linear-gradient(top,  #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%); 
+    background: -ms-linear-gradient(top,  #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%);
+    background: linear-gradient(to bottom,  #e2e2e2 0%,#dbdbdb 50%,#d1d1d1 51%,#fefefe 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe',GradientType=0 ); 
+    
+    border-bottom: 1px solid #ccc;
+}
+.panel .toolbar > ul{
+    padding: 2px;
+}
+.panel .toolbar > ul li{
+    margin: 0px 2px;
+    padding: 4px 0.25em;
+    display: inline-block;
+    border: 0px solid black;
+}
+
+.view{
+	width: 100%;
+	height: 100%;
+}
+.view.scroll {
+	overflow: auto;
+}

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<title>Explain regex</title>
+		<script type="text/javascript" src="parse.js"></script>
+		<script type="text/javascript" src="represent.js"></script>
+		<link type="text/css" rel="stylesheet" href="style.css" />
+		<script type="text/javascript">
+/*<![CDATA[*/
+
+function init() {
+	document.onkeydown = checkreturn;
+	var data = unescape(location.hash.substr(1));
+	document.getElementById("regex").value = data;
+	if (data.length > 0) {
+		doexplain();
+	}
+}
+
+function doexplain() {
+	var regex = document.getElementById("regex").value;
+	location.hash = '#' + escape(regex);
+	var output = document.getElementById("output");
+	var result = parse(regex);
+	if (window.console !== undefined && console.log !== undefined) console.log("result =", result);
+	var html = represent(result);
+	if (window.console !== undefined && console.log !== undefined) console.log("html =", html);
+	output.innerHTML = html;
+}
+
+function checkreturn(evt) {
+	evt = evt || window.event;
+	if (evt.keyCode == 13) {
+		doexplain();
+	}
+}
+
+/*]]>*/
+		</script>
+	</head>
+	<body onload="init();">
+		<div class="regexbox">
+			<input id="regex" type="text" size="60" />
+			<br/>
+			<button id="explain" onclick="doexplain();">Explain</button>
+			<br/>
+			<tt id="output"></tt>
+		</div>
+	</body>
+</html>

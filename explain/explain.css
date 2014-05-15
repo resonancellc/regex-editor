@@ -1,0 +1,265 @@
+.regexbox {
+	max-width: 80%;
+	min-width: 500px;
+}
+
+.regexbox > * {
+	font-size: 100%;
+	text-align: center;
+}
+
+.regexbox > tt {
+	text-align: left;
+}
+
+.explain{
+	-background-color: #333 !important;
+	-color:silver;
+}
+.explain span.structure {
+	-margin: 2pt;
+  -display: inline-block;
+	-background-color: white;
+}
+
+.explain .tooltip:before{
+	content: "";
+	position:absolute;
+	margin-left: -10px;
+}
+
+.explain span > span.tooltip {
+	pointer-events: none;
+	position: absolute;
+	display: none;
+	top: 0;
+	left: 1em;
+	z-index: 1;
+	
+	
+	padding: 2px 3px;
+	margin-top: 0;
+	margin-left: 2px;
+	font-size: 10pt;
+	font-family: sans-serif;
+	
+	background: #FFC;
+	border: 1px solid #CCC;
+	color: #000;
+	
+}
+
+.explain span:hover > span.tooltip {
+	display: block !important;
+}
+
+.tooltip:after {
+	right: 100%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.tooltip:after {
+	border-right-color: #FFC;
+	border-width: 6px;
+	top: 6px;
+	margin-top: -3px;
+}
+
+
+/*
+.color0 { color: #F33; }
+.color1 { color: #F63; }
+.color2 { color: #F93; }
+.color3 { color: #FC3; }
+.color4 { color: #FF3; }
+.color5 { color: #CF3; }
+.color6 { color: #9F3; }
+.color7 { color: #6F3; }
+.color8 { color: #3F3; }
+.color9 { color: #3F6; }
+.color10 { color: #3F9; }
+.color11 { color: #3FC; }
+.color12 { color: #3FF; }
+.color13 { color: #3CF; }
+.color14 { color: #39F; }
+.color15 { color: #36F; }
+.color16 { color: #33F; }
+.color17 { color: #63F; }
+.color18 { color: #93F; }
+.color19 { color: #C3F; }
+.color20 { color: #F3F; }
+.color21 { color: #F3C; }
+.color22 { color: #F39; }
+.color23 { color: #F36; }
+.color24 { color: #F00; }
+.color25 { color: #F30; }
+.color26 { color: #F60; }
+.color27 { color: #F90; }
+.color28 { color: #FC0; }
+.color29 { color: #FF0; }
+.color30 { color: #CF0; }
+.color31 { color: #9F0; }
+.color32 { color: #6F0; }
+.color33 { color: #3F0; }
+.color34 { color: #0F0; }
+.color35 { color: #0F3; }
+.color36 { color: #0F6; }
+.color37 { color: #0F9; }
+.color38 { color: #0FC; }
+.color39 { color: #0FF; }
+.color40 { color: #0CF; }
+.color41 { color: #09F; }
+.color42 { color: #06F; }
+.color43 { color: #03F; }
+.color44 { color: #00F; }
+.color45 { color: #30F; }
+.color46 { color: #60F; }
+.color47 { color: #90F; }
+.color48 { color: #C0F; }
+.color49 { color: #F0F; }
+.color50 { color: #F0C; }
+.color51 { color: #F09; }
+.color52 { color: #F06; }
+.color53 { color: #F03; }
+.color54 { color: #C00; }
+.color55 { color: #C30; }
+.color56 { color: #C60; }
+.color57 { color: #C90; }
+.color58 { color: #CC0; }
+.color59 { color: #9C0; }
+.color60 { color: #6C0; }
+.color61 { color: #3C0; }
+.color62 { color: #0C0; }
+.color63 { color: #0C3; }
+.color64 { color: #0C6; }
+.color65 { color: #0C9; }
+.color66 { color: #0CC; }
+.color67 { color: #09C; }
+.color68 { color: #06C; }
+.color69 { color: #03C; }
+.color70 { color: #00C; }
+.color71 { color: #30C; }
+.color72 { color: #60C; }
+.color73 { color: #90C; }
+.color74 { color: #C0C; }
+.color75 { color: #C09; }
+.color76 { color: #C06; }
+.color77 { color: #C03; }
+*/
+
+.color0 { background-color: #F33; }
+.color1 { background-color: #F63; }
+.color2 { background-color: #F93; }
+.color3 { background-color: #FC3; }
+.color4 { background-color: #FF3; }
+.color5 { background-color: #CF3; }
+.color6 { background-color: #9F3; }
+.color7 { background-color: #6F3; }
+.color8 { background-color: #3F3; }
+.color9 { background-color: #3F6; }
+.color10 { background-color: #3F9; }
+.color11 { background-color: #3FC; }
+.color12 { background-color: #3FF; }
+.color13 { background-color: #3CF; }
+.color14 { background-color: #39F; }
+.color15 { background-color: #36F; }
+.color16 { background-color: #33F; }
+.color17 { background-color: #63F; }
+.color18 { background-color: #93F; }
+.color19 { background-color: #C3F; }
+.color20 { background-color: #F3F; }
+.color21 { background-color: #F3C; }
+.color22 { background-color: #F39; }
+.color23 { background-color: #F36; }
+.color24 { background-color: #F00; }
+.color25 { background-color: #F30; }
+.color26 { background-color: #F60; }
+.color27 { background-color: #F90; }
+.color28 { background-color: #FC0; }
+.color29 { background-color: #FF0; }
+.color30 { background-color: #CF0; }
+.color31 { background-color: #9F0; }
+.color32 { background-color: #6F0; }
+.color33 { background-color: #3F0; }
+.color34 { background-color: #0F0; }
+.color35 { background-color: #0F3; }
+.color36 { background-color: #0F6; }
+.color37 { background-color: #0F9; }
+.color38 { background-color: #0FC; }
+.color39 { background-color: #0FF; }
+.color40 { background-color: #0CF; }
+.color41 { background-color: #09F; }
+.color42 { background-color: #06F; }
+.color43 { background-color: #03F; }
+.color44 { background-color: #00F; }
+.color45 { background-color: #30F; }
+.color46 { background-color: #60F; }
+.color47 { background-color: #90F; }
+.color48 { background-color: #C0F; }
+.color49 { background-color: #F0F; }
+.color50 { background-color: #F0C; }
+.color51 { background-color: #F09; }
+.color52 { background-color: #F06; }
+.color53 { background-color: #F03; }
+.color54 { background-color: #C00; }
+.color55 { background-color: #C30; }
+.color56 { background-color: #C60; }
+.color57 { background-color: #C90; }
+.color58 { background-color: #CC0; }
+.color59 { background-color: #9C0; }
+.color60 { background-color: #6C0; }
+.color61 { background-color: #3C0; }
+.color62 { background-color: #0C0; }
+.color63 { background-color: #0C3; }
+.color64 { background-color: #0C6; }
+.color65 { background-color: #0C9; }
+.color66 { background-color: #0CC; }
+.color67 { background-color: #09C; }
+.color68 { background-color: #06C; }
+.color69 { background-color: #03C; }
+.color70 { background-color: #00C; }
+.color71 { background-color: #30C; }
+.color72 { background-color: #60C; }
+.color73 { background-color: #90C; }
+.color74 { background-color: #C0C; }
+.color75 { background-color: #C09; }
+.color76 { background-color: #C06; }
+.color77 { background-color: #C03; }
+
+.explain dfn{
+	font-size: 8pt;
+	display: none;
+	margin-left: 1em;
+}
+.explain .explain samp{
+	-background-color: white;
+}
+.explain span{
+	position:relative;
+	display:block;
+	margin: 1px;
+}
+
+.explain span.structure{
+	margin-left: 1em;
+	margin-right: 1em;
+}
+
+.explain span.character dfn{
+	-display: inline;
+}
+
+.explain .character.range span.literal{
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+}
+
+.explain .literal{
+	background-color: inherit;
+}
